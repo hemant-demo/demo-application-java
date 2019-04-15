@@ -7,6 +7,5 @@ echo Test
     postScript : '''
 ls -l
 '''
-])
-@Library('github.com/hemant-demo/jenkins-demo-lib') _	
-buildCommitSha()
+])	
+buildCommitSha.call()
