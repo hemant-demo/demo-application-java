@@ -11,5 +11,6 @@ ls -l
 node {
   stage('BuildCommitSha') {            
 sh=buildCommitSha()
-        }
+  }
+}
 
