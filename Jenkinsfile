@@ -8,4 +8,8 @@ echo Test
 ls -l
 '''
 ])	
-buildCommitSha()
+node {
+  stage('BuildCommitSha') {            
+sh=buildCommitSha()
+  }
+}
