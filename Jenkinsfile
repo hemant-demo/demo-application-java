@@ -8,4 +8,4 @@ echo Test
 ls -l
 '''
 ])	
-buildCommitSha.call()
+buildCommitSha()
