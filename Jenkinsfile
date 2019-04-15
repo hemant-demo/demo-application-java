@@ -8,3 +8,5 @@ echo Test
 ls -l
 '''
 ])
+	
+buildCommitSha()
