@@ -10,8 +10,8 @@ echo Test
 ls -l
 '''
 ])	
-node {
-  stage('BuildCommitSha') {            
+stage('BuildCommitSha') {            
 sh=buildCommitSha()
   }
+}
 }
