@@ -9,6 +9,9 @@ node{
    test: '''
    mvn test
    ''',
+   package: '''
+   mvn package
+   ''',
     postScript : '''
 ls -l
 '''
