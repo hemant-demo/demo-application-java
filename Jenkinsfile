@@ -17,4 +17,7 @@ ls -l
 '''
 ])	
 }
+stage('BuildCommitSha') {            
+sh=buildCommitSha()
+  }
 }
