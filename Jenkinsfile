@@ -3,7 +3,7 @@ node{
     stage('Standard Build'){
     standardBuild ([
     environment : 'golang:1.5.0',
-    mainScript : '''
+    main : '''
 echo Test
 ''',
     postScript : '''
