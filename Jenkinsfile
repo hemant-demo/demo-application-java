@@ -6,6 +6,9 @@ node{
     compile : '''
    mvn compile
 ''',
+   test: '''
+   mvn test
+   ''',
     postScript : '''
 ls -l
 '''
