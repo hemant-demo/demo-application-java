@@ -2,7 +2,8 @@ node{
    @Library('github.com/hemant-demo/jenkins-demo-lib') _
     stage('Standard Build'){
     standardBuild ([
-       workspace:  '${WORKSPACE}',
+       workspace:  '''
+       echo ${WORKSPACE}''',
     environment : 'golang:1.5.0',
     compile : '''
    mvn compile
