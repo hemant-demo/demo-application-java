@@ -12,7 +12,8 @@ node{
 ''',
    test: '''
    mvn test
-   echo ${WORKSPACE}
+   echo ${env.WORKSPACE}
+   echo ${workspace}
    ''',
    package: '''
    mvn package
