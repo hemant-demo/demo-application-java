@@ -1,6 +1,6 @@
 node{
    environment {
-            def workspace = "${env.WORKSPACE}"
+      def workspace = "${WORKSPACE}"
     }
    @Library('github.com/hemant-demo/jenkins-demo-lib') _
     stage('Standard Build'){
