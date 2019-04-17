@@ -12,7 +12,7 @@ node{
 ''',
    test: '''
    mvn test
-   env
+   echo ${WORKSPACE}
    ''',
    package: '''
    mvn package
