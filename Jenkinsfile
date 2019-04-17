@@ -12,7 +12,7 @@ node{
 ''',
    test: '''
    mvn test
-   echo "Variable Testing within jenkifile: ${env.workspace}"
+   echo "Variable Testing within jenkifile: ${workspace}"
    ''',
    package: '''
    mvn package
