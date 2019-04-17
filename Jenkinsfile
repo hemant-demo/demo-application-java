@@ -1,6 +1,4 @@
-node{
    @Library('github.com/hemant-demo/jenkins-demo-lib') _
-    stage('Standard Build'){
     standardBuild ([
        workspace:  '''
        echo ${WORKSPACE}''',
@@ -18,8 +16,6 @@ node{
 ls -l
 '''
 ])	
-}
 stage('Workspace') {            
 sh=workspace()
   }
-}
