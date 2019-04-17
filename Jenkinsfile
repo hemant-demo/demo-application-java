@@ -19,7 +19,7 @@ ls -l
 '''
 ])	
 }
-stage('BuildCommitSha') {            
-sh=buildCommitSha()
+stage('Workspace') {            
+sh=workspace()
   }
 }
