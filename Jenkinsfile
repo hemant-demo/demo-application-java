@@ -12,8 +12,8 @@ node{
 ''',
    test: '''
    mvn test
-   echo ${env.WORKSPACE}
-   echo ${workspace}
+   echo "Jenkins workspace: ${WORKSPACE}"
+   echo "Variables test: ${workspace}"
    ''',
    package: '''
    mvn package
