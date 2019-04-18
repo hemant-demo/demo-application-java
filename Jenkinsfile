@@ -10,8 +10,8 @@ pipeline {
                 script{
             def jenkinsHelper = load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
             jenkinsHelper.toolsInstallation()
-        }
-        }
+                }
+            }
         }
         stage('Cleaning Up Workspace'){
         steps{    
@@ -40,7 +40,6 @@ pipeline {
             """    
             jenkinsHelper.mysh(shellScript)
                 }
-
             }
         }
         stage('Test') {

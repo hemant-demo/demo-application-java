@@ -5,8 +5,8 @@
  *
  * @return "true" in case of pull request pipline, otherwise "false"
  */
- def toolsInstallation(){
-import jenkins.model.*
+import jenkins.model.* 
+def toolsInstallation(){
 println "Adding an auto installer for Maven 3.3.9"
 
 def mavenPluginExtension = Jenkins.instance.getExtensionList(hudson.tasks.Maven.DescriptorImpl.class)[0]
@@ -19,7 +19,7 @@ mavenPluginExtension.installations = asList
 mavenPluginExtension.save()
 
 println "OK - Maven auto-installer (from Apache) added for 3.3.9"
- }
+}
 
 def isBuildForPullRequest() {
     return env.CHANGE_ID != null
