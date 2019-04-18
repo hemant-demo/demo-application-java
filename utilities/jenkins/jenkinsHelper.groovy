@@ -7,7 +7,6 @@
  */
  
 def toolsInstallation(){
-import jenkins.model.*
 println "Test for tools"
 /*println "Adding an auto installer for Maven 3.3.9"
 
