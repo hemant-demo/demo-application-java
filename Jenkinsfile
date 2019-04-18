@@ -4,12 +4,10 @@ pipeline {
     options {
             skipDefaultCheckout()
     }
-<<<<<<< HEAD
-=======
+
     tools{
     maven 'maven-3'
     }
->>>>>>> ddfcc6e9684a399d2d4fc9da7496565f8e76a02b
     stages {        
         stage('Cleaning Up Workspace'){
         steps{    
@@ -28,7 +26,7 @@ pipeline {
             }
          }
         
-<<<<<<< HEAD
+
    stage('Maven Installation'){
             steps{
                 script{
@@ -37,8 +35,7 @@ pipeline {
                 }
             }
         }
-=======
->>>>>>> ddfcc6e9684a399d2d4fc9da7496565f8e76a02b
+
         stage('Compile') {
             steps{
                 script{
