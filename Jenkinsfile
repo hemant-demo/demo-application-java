@@ -40,13 +40,29 @@ pipeline {
         }
         stage('Test') {
             steps{
-            echo "Running test into ${env.WORKSPACE}"
+             script{
+            echo "Starting testing the current source code from ${env.WORKSPACE}"
+            def jenkinsHelper = load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
+            def shellScript =  """
+            cd ${env.WORKSPACE}
+            mvn test
+            """    
+            jenkinsHelper.mysh(shellScript)
+                }
             }
         }
         stage('Package'){
           steps{
-            echo "Packaging source code into ${env.WORKSPACE}/target"
+             script{
+            echo "Starting packaging the current source code from ${env.WORKSPACE}"
+            def jenkinsHelper = load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
+            def shellScript =  """
+            cd ${env.WORKSPACE}
+            mvn package
+            """    
+            jenkinsHelper.mysh(shellScript)
             }
+        }
         }
     }
     post{
