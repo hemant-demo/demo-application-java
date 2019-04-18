@@ -1,21 +1,19 @@
-   @Library('github.com/hemant-demo/jenkins-demo-lib') _
-    standardBuild ([
-       workspace:  '''
-       echo ${WORKSPACE}''',
-    environment : 'golang:1.5.0',
-    compile : '''
-   mvn compile
-''',
-   test: '''
-   mvn test
-   ''',
-   package: '''
-   mvn package
-   ''',
-    postScript : '''
-ls -l
-'''
-])	
-stage('Workspace') {            
-sh=workspace()
-  }
+#!groovy
+pipeline {
+    agent any
+    stages {
+         stage('Checkout') {
+            checkout scm
+        }
+        stage('Compile') {
+            echo "Starting compiling the current source code from ${env.WORKSPACE}"
+            
+        }
+        stage('Test') {
+            echo "Running test into ${env.WORKSPACE}"
+        }
+        stage('Package'){
+            echo "Packaging source code into ${env.WORKSPACE}/target"
+        }
+    }
+}
