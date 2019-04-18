@@ -13,7 +13,7 @@ mavenPluginExtension.installations = asList
 
 mavenPluginExtension.save()
 
-println "OK - Maven auto-installer (from Apache) added for 3.3.9"
+return "OK - Maven auto-installer (from Apache) added for 3.3.9"
 }
 }
 
