@@ -5,8 +5,9 @@
  *
  * @return "true" in case of pull request pipline, otherwise "false"
  */
-import jenkins.model.* 
+ 
 def toolsInstallation(){
+import jenkins.model.*
 println "Adding an auto installer for Maven 3.3.9"
 
 def mavenPluginExtension = Jenkins.instance.getExtensionList(hudson.tasks.Maven.DescriptorImpl.class)[0]
