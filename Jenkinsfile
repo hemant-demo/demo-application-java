@@ -5,6 +5,10 @@ pipeline {
             skipDefaultCheckout()
     }
     stages {
+        stage('Maven Installation'){
+            def jenkinsHelper = load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
+            jenkinsHelper.toolsInstallation()
+        }
         stage('Cleaning Up Workspace'){
         steps{    
             echo "Cleaning up ${WORKSPACE}"
@@ -23,7 +27,16 @@ pipeline {
          }
         stage('Compile') {
             steps{
+                script{
             echo "Starting compiling the current source code from ${env.WORKSPACE}"
+            def jenkinsHelper = load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
+            def shellScript =  """
+            cd ${env.WORKSPACE}
+            mvn compile
+            """    
+            jenkinsHelper.mysh(shellScript)
+                }
+
             }
         }
         stage('Test') {
