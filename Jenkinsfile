@@ -1,8 +1,22 @@
 #!groovy
 pipeline {
     agent any
+    options {
+            skipDefaultCheckout()
+    }
     stages {
-         stage('Checkout') {
+        stage('Cleaning Up Workspace'){
+        steps{    
+            echo "Cleaning up ${WORKSPACE}"
+            // clean up our workspace 
+           deleteDir()
+            // clean up tmp directory 
+            dir("${workspace}@tmp") {
+                deleteDir()            
+                }   
+            }    
+        }
+        stage('Checkout') {
              steps{
             checkout scm
             }
