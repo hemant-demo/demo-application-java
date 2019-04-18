@@ -6,8 +6,10 @@ pipeline {
     }
     stages {
         stage('Maven Installation'){
+            steps{
             def jenkinsHelper = load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
             jenkinsHelper.toolsInstallation()
+        }
         }
         stage('Cleaning Up Workspace'){
         steps{    
