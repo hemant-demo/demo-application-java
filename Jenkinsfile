@@ -4,15 +4,7 @@ pipeline {
     options {
             skipDefaultCheckout()
     }
-    stages {
-        stage('Maven Installation'){
-            steps{
-                script{
-            def toolsInstall = load "${env.WORKSPACE}/utilities/jenkins/toolsInstall.groovy"
-            toolsInstall.toolsInstallation()
-                }
-            }
-        }
+    stages {        
         stage('Cleaning Up Workspace'){
         steps{    
             echo "Cleaning up ${WORKSPACE}"
@@ -24,21 +16,20 @@ pipeline {
                 }   
             }    
         }
-    
-            stage('Checkout') {
+       stage('Checkout') {
              steps{
             checkout scm
             }
          }
-        stage('Maven Installation'){
+        
+   stage('Maven Installation'){
             steps{
                 script{
-            def jenkinsHelper = load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
-            jenkinsHelper.toolsInstallation()
+            def toolsInstall = load "${env.WORKSPACE}/utilities/jenkins/toolsInstall.groovy"
+            toolsInstall.toolsInstallation()
                 }
             }
         }
-        
         stage('Compile') {
             steps{
                 script{
