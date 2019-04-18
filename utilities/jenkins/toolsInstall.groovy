@@ -1,7 +1,6 @@
 import jenkins.model.*
-
 class toolsInstall {
-static void toolsInstallation(){
+ void toolsInstallation(){
 println "Test for tools"
 println "Adding an auto installer for Maven 3.3.9"
 
@@ -14,6 +13,8 @@ mavenPluginExtension.installations = asList
 
 mavenPluginExtension.save()
 
-println "OK - Maven auto-installer (from Apache) added for 3.3.9"
+return "OK - Maven auto-installer (from Apache) added for 3.3.9"
 }
 }
+
+return new toolsInstall()
