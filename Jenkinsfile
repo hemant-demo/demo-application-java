@@ -7,6 +7,7 @@ pipeline {
 
     tools{
     maven 'maven-3'
+    git 'Default'
     }
     stages {        
         stage('Cleaning Up Workspace'){
