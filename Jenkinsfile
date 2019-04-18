@@ -4,12 +4,6 @@ pipeline {
     options {
             skipDefaultCheckout()
     }
-<<<<<<< HEAD
-=======
-    tools{
-    maven 'maven-3'
-    }
->>>>>>> ddfcc6e9684a399d2d4fc9da7496565f8e76a02b
     stages {        
         stage('Cleaning Up Workspace'){
         steps{    
@@ -27,18 +21,6 @@ pipeline {
             checkout scm
             }
          }
-        
-<<<<<<< HEAD
-   stage('Maven Installation'){
-            steps{
-                script{
-            def toolsInstall = load "${env.WORKSPACE}/utilities/jenkins/toolsInstall.groovy"
-            toolsInstall.toolsInstallation()
-                }
-            }
-        }
-=======
->>>>>>> ddfcc6e9684a399d2d4fc9da7496565f8e76a02b
         stage('Compile') {
             steps{
                 script{
