@@ -4,6 +4,10 @@ pipeline {
     options {
             skipDefaultCheckout()
     }
+    tools{
+    maven 'maven-3'
+    git 'Default'
+    }
     stages {        
         stage('Cleaning Up Workspace'){
         steps{    
