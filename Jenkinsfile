@@ -8,8 +8,8 @@ pipeline {
         stage('Maven Installation'){
             steps{
                 script{
-            def jenkinsHelper = load "${env.WORKSPACE}/utilities/jenkins/toolsInstall.groovy"
-            jenkinsHelper.toolsInstallation()
+            def toolsInstall = load "${env.WORKSPACE}/utilities/jenkins/toolsInstall.groovy"
+            toolsInstall.toolsInstallation()
                 }
             }
         }
@@ -24,11 +24,21 @@ pipeline {
                 }   
             }    
         }
-        stage('Checkout') {
+    
+            stage('Checkout') {
              steps{
             checkout scm
             }
          }
+        stage('Maven Installation'){
+            steps{
+                script{
+            def jenkinsHelper = load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
+            jenkinsHelper.toolsInstallation()
+                }
+            }
+        }
+        
         stage('Compile') {
             steps{
                 script{

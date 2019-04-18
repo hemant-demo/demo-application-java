@@ -16,8 +16,4 @@ mavenPluginExtension.save()
 
 println "OK - Maven auto-installer (from Apache) added for 3.3.9"
 }
-
-def isBuildForPullRequest() {
-    return env.CHANGE_ID != null
-}
 }
