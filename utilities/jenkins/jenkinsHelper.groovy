@@ -7,13 +7,11 @@
  */
  
 
-<<<<<<< HEAD
-=======
 
 def isBuildForPullRequest() {
     return env.CHANGE_ID != null
 }
->>>>>>> c7cc2e9f0a745e108dbcee6c7ae6fc219563b748
+
 
 /**
  * Check if the current build should execute the pipline for master branch
