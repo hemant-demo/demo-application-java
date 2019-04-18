@@ -26,7 +26,7 @@ pipeline {
             steps{
                 script{
             def toolsInstall = load "${env.WORKSPACE}/utilities/jenkins/toolsInstall.groovy"
-            toolsInstall.toolsInstallation()
+            print toolsInstall.toolsInstallation()
                 }
             }
         }
