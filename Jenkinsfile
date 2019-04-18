@@ -25,14 +25,6 @@ pipeline {
             }
          }
         
-   stage('Maven Installation'){
-            steps{
-                script{
-            def toolsInstall = load "${env.WORKSPACE}/utilities/jenkins/toolsInstall.groovy"
-            print toolsInstall.toolsInstallation()
-                }
-            }
-        }
         stage('Compile') {
             steps{
                 script{
