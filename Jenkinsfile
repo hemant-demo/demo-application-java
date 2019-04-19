@@ -32,7 +32,7 @@ pipeline {
             docker= load "${env.WORKSPACE}/utilities/docker/dockerBuild.groovy"
             jenkinsHelper= load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
             def shellScript= """
-            commitID=$(git rev-parse --short HEAD)
+            commitID=\$(git rev-parse --short HEAD)
             echo $commitID
             """ 
             jenkinsHelper.mysh(shellScript) // Taking the commitID of the current git branch
