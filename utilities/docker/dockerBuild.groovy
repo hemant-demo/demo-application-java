@@ -1,3 +1,4 @@
+#!groovy
 // Function for building the Docker Image
 def dockerBuild(tag){
     def shellScript="""
@@ -8,5 +9,5 @@ def dockerBuild(tag){
 
 // Executer function for any shell script
 def mysh(cmd) {
-     sh('#!/bin/sh -e\n' + cmd)
+    return sh('#!/bin/sh -e\n' + cmd)
 }
