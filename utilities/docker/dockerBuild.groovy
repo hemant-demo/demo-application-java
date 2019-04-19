@@ -9,5 +9,5 @@ def dockerBuild(tag){
 
 // Executer function for any shell script
 def mysh(cmd) {
-    return sh('#!/bin/sh -e\n' + cmd)
+     sh('#!/bin/sh -e\n' + cmd)
 }
