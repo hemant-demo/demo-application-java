@@ -4,3 +4,4 @@
 def mysh(cmd) {
     sh('#!/bin/sh -e\n' + cmd)
 }
+return this
