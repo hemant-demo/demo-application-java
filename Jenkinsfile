@@ -36,7 +36,6 @@ pipeline {
             """ 
             commitID= dockerBuild.mysh(shellScript) // Taking the commitID of the current git branch
             echo "Current commit ID is: ${commitID}"
-            dockerBuild.dockerBuild(commitID)
                 }
             }
         }
