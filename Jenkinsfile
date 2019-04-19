@@ -33,8 +33,9 @@ pipeline {
             jenkinsHelper= load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
             def shellScript= "git rev-parse --short HEAD"
             commitID=jenkinsHelper.commitID(shellScript) // Taking the commitID of the current git branch
-            echo "Info: Current build commit id is: ${commitID}" 
-            build=docker.Build(commitID)  
+            echo "Info: Current build commit id is: ${commitID}"
+            def buildScript="echo Buildgin docker Image"
+            build=docker.Build(buildScript)  
                 }
             }
         }
