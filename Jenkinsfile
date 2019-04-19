@@ -34,7 +34,7 @@ pipeline {
             def shellScript = """
             git rev-parse --short HEAD
             """ 
-            commitID= dockerBuild.mysh(shellScript) // Taking the commitID of the current git branch
+            commitID= jenkinsHelper.mysh(shellScript) // Taking the commitID of the current git branch
             echo "Current commit ID is: ${commitID}"
                 }
             }
