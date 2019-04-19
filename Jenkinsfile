@@ -34,7 +34,7 @@ pipeline {
             def shellScript= "git rev-parse --short HEAD"
             commitID=jenkinsHelper.commitID(shellScript) // Taking the commitID of the current git branch
             echo "Info: Current build commit id is: ${commitID}" 
-            docker.Build(commitID)  
+            build=docker.Build(commitID)  
                 }
             }
         }
