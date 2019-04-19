@@ -1,12 +1,12 @@
-FROM maven:3.5-jdk-8 as BUILD
+FROM maven as BUILD
 
 COPY . /usr/src/app
 RUN apt update 
 RUN apt install procps
-RUN mvn --batch-mode -f /usr/src/app/pom.xml clean 
+RUN mvn -f /usr/src/app/pom.xml clean 
 #RUN mvn --batch-mode -f /usr/src/app/pom.xml compile
 #RUN mvn --batch-mode -f /usr/src/app/pom.xml test
-RUN mvn --batch-mode -f /usr/src/app/pom.xml package
+RUN mvn -f /usr/src/app/pom.xml package
 
 #FROM openjdk:8-jdk
 #ENV PORT 4567
