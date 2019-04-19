@@ -3,7 +3,7 @@
 // Executer function for any shell script
 def Build(tag) {
     def shellscript="""
-    docker build -t ${tag} .
+    echo "Running Docker build on tag: ${tag}"
     """
    return sh(script: '#!/bin/sh -e\n' + shellscript, returnStdout: true)
 }
