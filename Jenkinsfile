@@ -25,16 +25,18 @@ pipeline {
             checkout scm
             }
          }
-        stage('Compile') {
+        stage('Standard Build') {
             steps{
                 script{
             echo "Starting compiling the current source code from ${env.WORKSPACE}"
-            def jenkinsHelper = load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
-            def shellScript =  """
+            def dockerBuild = load "${env.WORKSPACE}/utilities/docker/dockerBuild.groovy"
+            jenkinsHelper= load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
+            def shellScript = """
             cd ${env.WORKSPACE}
-            mvn compile
-            """    
-            jenkinsHelper.mysh(shellScript)
+            git rev-parse --short HEAD
+            """ 
+            commitID= jenkinsHelper.mysh(shellScript)
+            echo "${commitID}"
                 }
             }
         }
