@@ -12,6 +12,10 @@ def isBuildForPullRequest() {
     return env.CHANGE_ID != null
 }
 
+// Function for returning the CommitID
+def commitID(cmd) {
+   return sh(script: '#!/bin/sh -e\n' + cmd, returnStdout: true)
+}
 
 /**
  * Check if the current build should execute the pipline for master branch
