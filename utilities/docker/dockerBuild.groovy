@@ -9,4 +9,16 @@ def build(tag) {
     """
     sh(script: '#!/bin/sh -e\n' + shellScript, returnStdout: true)
 }
+ // Build base image for running maven life cycle on the source code
+def baseImagebuild(){
+    echo "Starting compiling the current source code from ${env.WORKSPACE}"
+    branchName =  BuildBranchName()
+    def customImage = docker.build("baseImage:$branchName")
+}
+
+def BuildBranchName() {
+    return env.BRANCH_NAME
+}
+
+
 return this
