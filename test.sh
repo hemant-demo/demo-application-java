@@ -1,3 +1,4 @@
 #!/bin/sh
-version=$(git rev-parse --short HEAD)
+version="asd"
 echo $version
+sudo docker build -t $version .
