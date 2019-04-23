@@ -39,6 +39,14 @@ pipeline {
                 }
             }
         }
+        stage("Creating Docker Image"){
+            steps{
+                script{
+                    def customImage = docker.build("base_image:${env.BUILD_ID}")
+                }
+            }
+            
+        }
     }   
     post{
         always{
