@@ -28,7 +28,7 @@ pipeline {
         stage('Maven Standard Build') {
             steps{
                 script{
-                    docker= load "${env.WORKSPACE}/utilities/docker/dockerBuild.groovy"
+                    dockerbuild= load "${env.WORKSPACE}/utilities/docker/dockerBuild.groovy"
                     jenkinsHelper= load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
                     def shellScript= "git rev-parse --short HEAD" // For fetching the commitID of the current branch
                     commitID=jenkinsHelper.commitID(shellScript) // Taking the commitID of the current git branch
