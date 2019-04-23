@@ -42,7 +42,14 @@ pipeline {
         stage("Creating Docker Image"){
             steps{
                 script{
-                    def customImage = docker.build("base_image:${env.BUILD_ID}")
+                    dockerbuild= load "${env.WORKSPACE}/utilities/docker/dockerBuild.groovy"
+                    print "heeeeeelloooooooo"
+                    print "${env.WORKSPACE}"
+                    sh """
+                    cd ${env.WORKSPACE}/utilities/docker
+                    ls -ltrh
+                    """
+                    dockerbuild.Imagebuild()
                 }
             }
             
