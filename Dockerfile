@@ -1,4 +1,4 @@
-FROM maven as BUILD
+FROM maven
 COPY ./target/*.jar /usr/src/app/app.jar
 #RUN mv /usr/src/app/*.jar /usr/src/app/app.jar
 WORKDIR /usr/src/app
