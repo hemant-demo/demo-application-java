@@ -17,6 +17,15 @@ def commitID(cmd) {
    return sh(script: '#!/bin/sh -e\n' + cmd, returnStdout: true)
 }
 
+def standardBuild(commitID,branchName){
+    def shellscript= """
+                    echo Building commitID ${commitID}
+                    echo Build started for branch: ${branchName}
+                    mvn clean install
+                    """
+   buildResult= mysh(shellscript)
+   return buildResult
+}
 /**
  * Check if the current build should execute the pipline for master branch
  *
