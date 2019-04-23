@@ -24,7 +24,6 @@ def standardBuild(commitID,branchName){
                     mvn clean install
                     """
    buildResult= mysh(shellscript)
-   return buildResult
 }
 /**
  * Check if the current build should execute the pipline for master branch
