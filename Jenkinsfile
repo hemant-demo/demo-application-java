@@ -39,7 +39,7 @@ pipeline {
                 }
             }
         }
-        
+    }   
     post{
         always{
             echo "I will say Hello everytime"
