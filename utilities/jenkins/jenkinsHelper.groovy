@@ -14,6 +14,13 @@ def isBuildForPullRequest() {
 def commitID(cmd) {
    return sh(script: '#!/bin/sh -e\n' + cmd, returnStdout: true)
 }
+// Get the app name from Jenkins job_name parameter
+def appName(job_name){
+    def app_name="""
+    echo "${job_name}"|cut -d / -f2
+    """
+    mysh(app_name)
+}
 
 def standardBuild(commitID,branchName){
     def shellscript= """
@@ -85,9 +92,7 @@ def isBuildForNightlyTest() {
  * @param cmd
  * @return
  */
-def appName(){
-    sh(echo "${job_name}"|cut -d / -f2)
-}
+
 def mysh(cmd) {
     sh('#!/bin/sh -e\n' + cmd)
 }
