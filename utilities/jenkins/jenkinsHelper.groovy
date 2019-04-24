@@ -94,7 +94,7 @@ def isBuildForNightlyTest() {
  */
 
 def mysh(cmd) {
-    sh('#!/bin/sh -e\n' + cmd)
+    sh(script: '#!/bin/sh -e\n' + cmd, returnStdout: true)
 }
 
 /**
