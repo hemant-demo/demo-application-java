@@ -6,8 +6,6 @@
  * @return "true" in case of pull request pipline, otherwise "false"
  */
  
-
-
 def isBuildForPullRequest() {
     return env.CHANGE_ID != null
 }
@@ -87,6 +85,9 @@ def isBuildForNightlyTest() {
  * @param cmd
  * @return
  */
+def appName(){
+    sh(echo "${job_name}"|cut -d / -f2)
+}
 def mysh(cmd) {
     sh('#!/bin/sh -e\n' + cmd)
 }

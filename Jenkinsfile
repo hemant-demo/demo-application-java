@@ -16,8 +16,7 @@ pipeline {
         stage('Cleaning Up Workspace'){
         steps{    
             echo "Cleaning up ${WORKSPACE}"
-            echo "Testing JOb_NAME parameter: ${job_name}"
-            echo "${env.JOB_NAME}"
+            echo "Testing JOB_NAME parameter: ${job_name}"
             // clean up our workspace 
            deleteDir()
             // clean up tmp directory 
@@ -49,6 +48,9 @@ pipeline {
             steps{
                 script{
                     dockerbuild= load "${env.WORKSPACE}/utilities/docker/dockerBuild.groovy"
+                    jenkinsHelper= load "${env.WORKSPACE}/utilities/jenkins/jenkinsHelper.groovy"
+                    app_name=jenkinsHelper.appName(job_name)
+                    println("App name is : ${app_name}")
                     def build_docker=dockerbuild.Imagebuild()
                 }
             }
