@@ -1,6 +1,10 @@
 #!groovy
 pipeline {
     agent any
+    environment {
+        job_name="${env.JOB_NAME}" // setting job name parameter for getting the application name
+    }
+
     options {
             skipDefaultCheckout()
     }
@@ -12,6 +16,8 @@ pipeline {
         stage('Cleaning Up Workspace'){
         steps{    
             echo "Cleaning up ${WORKSPACE}"
+            echo "Testing JOb_NAME parameter: ${job_name}"
+            echo "${env.JOB_NAME}"
             // clean up our workspace 
            deleteDir()
             // clean up tmp directory 
