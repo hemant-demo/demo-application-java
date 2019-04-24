@@ -43,13 +43,7 @@ pipeline {
             steps{
                 script{
                     dockerbuild= load "${env.WORKSPACE}/utilities/docker/dockerBuild.groovy"
-                    print "heeeeeelloooooooo"
-                    print "${env.WORKSPACE}"
-                    sh """
-                    cd ${env.WORKSPACE}/utilities/docker
-                    ls -ltrh
-                    """
-                    dockerbuild.Imagebuild()
+                    def build_docker=dockerbuild.Imagebuild()
                 }
             }
             
