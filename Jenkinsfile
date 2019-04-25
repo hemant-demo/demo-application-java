@@ -39,8 +39,7 @@ pipeline {
                     commitID=jenkinsHelper.commitID(shellScript) // Taking the commitID of the current git branch
                     echo "Debug: Current build commit id is: ${commitID}"
                     String CommitID = commitID.trim(); // trimming the \n at the end of string
-                    jenkinsHelper.standardBuild(CommitID,env.BRANCH_NAME)
-                    
+                    jenkinsHelper.standardBuild(CommitID,env.BRANCH_NAME)   
                 }
             }
         }
@@ -54,7 +53,6 @@ pipeline {
                     def build_docker=dockerbuild.Imagebuild()
                 }
             }
-            
         }
     }   
     post{

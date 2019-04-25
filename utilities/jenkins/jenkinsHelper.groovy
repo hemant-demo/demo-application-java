@@ -22,6 +22,11 @@ def appName(job_name){
     mysh(app_name)
 }
 
+def git_merge(){
+    def shellscript="""
+    git --no-pager branch
+    """
+}
 def standardBuild(commitID,branchName){
     def shellscript= """
                     echo Building commitID ${commitID}
